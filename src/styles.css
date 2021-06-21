@@ -1,0 +1,9 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.peopleAvatar {
+  position: absolute;
+  bottom: 0px;
+}
