@@ -1,8 +1,17 @@
+/*
+ * @Author: joe leung
+ * @Date: 2021-06-21 12:05:39
+ * @LastEditTime: 2021-06-22 15:31:25
+ * @LastEditors: Please set LastEditors
+ * @Description: bubble list component
+ * @FilePath: /ui/bubble_chats/src/components/bubbleList.js
+ */
 import React from "react";
 import { connect } from "react-redux";
+
 import { getBubbleList } from "../redux/selectors";
-import Bubble from "./bubble";
 import { getWindowDimensions, getRandomInt } from "../utils/tools";
+import Bubble from "./bubble";
 
 const BubbleList = ({ bubbles }) => (
   <div>

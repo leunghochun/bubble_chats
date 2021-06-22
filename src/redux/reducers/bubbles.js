@@ -1,4 +1,12 @@
-import { MOVE_UP, MOVE_DOWN, GET_TARGETS } from "../actionTypes";
+/*
+ * @Author: your name
+ * @Date: 2021-06-21 12:05:39
+ * @LastEditTime: 2021-06-22 16:53:40
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /ui/bubble_chats/src/redux/reducers/bubbles.js
+ */
+import { MOVE_UP, MOVE_DOWN, GET_TARGETS, GET_BUBBLES } from "../actionTypes";
 
 const initialState = {
   people: {
@@ -16,8 +24,15 @@ const initialState = {
   activeBubble: null
 };
 
-export default (state = initialState, action) => {
+const bubbles = (state = initialState, action) => {
+  console.log("bubbles reducer:", action.type);
   switch (action.type) {
+    case GET_BUBBLES: {
+      return {
+        ...state,
+        bubblesList: action.bubblesList
+      };
+    }
     case MOVE_UP: {
       const key = action.payload.data.id;
       const newBottom = action.payload.data.bottom;
@@ -65,3 +80,5 @@ export default (state = initialState, action) => {
     }
   }
 };
+
+export default bubbles;
