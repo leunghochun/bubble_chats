@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-06-21 12:05:39
- * @LastEditTime: 2021-06-22 18:15:17
+ * @LastEditTime: 2021-06-22 18:34:46
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /ui/bubble_chats/src/redux/reducers/bubbles.js
@@ -17,6 +17,7 @@ const user = (state = initialState, action) => {
       const userId = action.payload.data.userId;
       const firstName = action.payload.data.firstName;
       const lastName = action.payload.data.lastName;
+      console.log('user reducers:', userId, state);
 
       return {
         ...state,

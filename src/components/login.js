@@ -1,48 +1,58 @@
 /*
  * @Author: joe leung
  * @Date: 2021-06-22 10:55:53
- * @LastEditTime: 2021-06-22 18:10:36
+ * @LastEditTime: 2021-07-02 17:51:23
  * @LastEditors: Please set LastEditors
  * @Description: To make a user login input box 
  * @FilePath: /ui/bubble_chats/src/components/login.js
  */
 
-import React from "react";
+import React, {useState, useCallback , useEffect} from "react";
 import { connect } from "react-redux";
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
+import FormControl from 'react-bootstrap/FormControl';
+import Button from 'react-bootstrap/Button';
+
 
 import { getUser } from "../redux/selectors";
 import { createUser } from "../redux/actions";
 
 const Login = (props) => {
+    const [value, setValue] = useState('');
+    const handleChange = useCallback(e => setValue(e.target.value), []);
 
-    const handleChange = (e) => {
-        let names =e.target.value.split(' ');
+    const handleClick=(e)=>{
+        let names = value.split(' ');
         const data = {
-            "userId": e.target.value,
+            "userId": value,
             "firstName": names[0],
             "lastName": names[1] ? names[1] : ''
         }
-        props.createUser(data);
+        props.createUser(data)
     }
 
     return (
         <Container>
-            <Form>
-                <Form.Group controlId="formName">
-                    <Form.Label>User Name</Form.Label>
-                    <Form.Control type="text" placeholder="Enter user name" onChange={handleChange}/>
-                    <Form.Label>{props.user}</Form.Label>
-                </Form.Group> 
-            </Form>
+            <InputGroup className="mb-3">
+                <FormControl
+                    placeholder="Username"
+                    aria-label="Username"
+                    aria-describedby="basic-addon2"
+                    onChange={handleChange}
+                />
+                <InputGroup.Append>
+                <Button variant="primary" onClick={handleClick}>Go</Button>
+                </InputGroup.Append>
+            </InputGroup>
         </Container>
     );
 }
 
 const mapStateToProps = (state) => {
     const user = getUser(state);
-    console.log(user);
+    console.log(state);
     return { user };
 };
 

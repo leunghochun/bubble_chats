@@ -1,8 +1,8 @@
 /*
  * @Author: your name
  * @Date: 2021-06-21 12:05:39
- * @LastEditTime: 2021-06-22 11:09:55
- * @LastEditors: your name
+ * @LastEditTime: 2021-07-02 16:09:29
+ * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /ui/bubble_chats/src/App.js
  */
